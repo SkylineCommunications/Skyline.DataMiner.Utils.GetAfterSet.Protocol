@@ -102,16 +102,16 @@ public class QAction
 	/// </summary>
 	/// <param name="protocol">Link with SLProtocol process.</param>
 	public void Run(SLProtocol protocol)
-    {
-        try
-        {
+	{
+		try
+		{
 			parameterBuffer.Process(protocol);
-        }
-        catch (Exception ex)
-        {
-            protocol.Log("QA" + protocol.QActionID + "|" + protocol.GetTriggerParameter() + "|Run|Exception thrown:" + Environment.NewLine + ex, LogType.Error, LogLevel.NoLogging);
-        }
-    }
+		}
+		catch (Exception ex)
+		{
+			protocol.Log("QA" + protocol.QActionID + "|" + protocol.GetTriggerParameter() + "|Run|Exception thrown:" + Environment.NewLine + ex, LogType.Error, LogLevel.NoLogging);
+		}
+	}
 }
 
 ```
@@ -135,9 +135,9 @@ public static class QAction
 	/// </summary>
 	/// <param name="protocol">Link with SLProtocol process.</param>
 	public void Run(SLProtocol protocol)
-    {
-        try
-        {
+	{
+		try
+		{
 			protocol.SetParameter(StandaloneParameter, "Set");
 
 			var retryRequest = new GetAfterSetConfig(
@@ -146,12 +146,12 @@ public static class QAction
 					desiredValue);
 
 			protocol.SetParameter(Parameter.addrequestbuffer, Convert.ToString(new RequestQueue(retryRequest, 5)));
-        }
-        catch (Exception ex)
-        {
-            protocol.Log("QA" + protocol.QActionID + "|" + protocol.GetTriggerParameter() + "|Run|Exception thrown:" + Environment.NewLine + ex, LogType.Error, LogLevel.NoLogging);
-        }
-    }
+		}
+		catch (Exception ex)
+		{
+			protocol.Log("QA" + protocol.QActionID + "|" + protocol.GetTriggerParameter() + "|Run|Exception thrown:" + Environment.NewLine + ex, LogType.Error, LogLevel.NoLogging);
+		}
+	}
 }
 
 ```
@@ -173,25 +173,25 @@ public static class QAction
 	/// </summary>
 	/// <param name="protocol">Link with SLProtocol process.</param>
 	public void Run(SLProtocol protocol)
-    {
-        try
-        {
+	{
+		try
+		{
 			protocol.SetParameter(StandaloneParameter, "Set");
 
 			var retryRequest = new GetAfterSetConfig(
 					TablePid,
-                    RowKey,
-                    ColumnIdx,
+					RowKey,
+					ColumnIdx,
 					TriggerId,
 					desiredValue);
 
 			protocol.SetParameter(Parameter.addrequestbuffer, Convert.ToString(new RequestQueue(retryRequest, 5)));
-        }
-        catch (Exception ex)
-        {
-            protocol.Log("QA" + protocol.QActionID + "|" + protocol.GetTriggerParameter() + "|Run|Exception thrown:" + Environment.NewLine + ex, LogType.Error, LogLevel.NoLogging);
-        }
-    }
+		}
+		catch (Exception ex)
+		{
+			protocol.Log("QA" + protocol.QActionID + "|" + protocol.GetTriggerParameter() + "|Run|Exception thrown:" + Environment.NewLine + ex, LogType.Error, LogLevel.NoLogging);
+		}
+	}
 }
 
 ```
