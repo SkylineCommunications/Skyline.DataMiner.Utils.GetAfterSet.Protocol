@@ -8,7 +8,11 @@ You can define how many times you want a parameter to be re-polled until it is t
 This library requires a bit of setup to use.
 
 
+## Table of Content
 
+- [Installation](#Installation)
+- [Setup](#Setup)
+- [Usage/Examples](#UsageExamples)
 
 ## Installation
 
@@ -16,9 +20,7 @@ Add the nuget package to your QAction with the "Manage Nuget Packges..."
 
 ## Setup 
 
-#### Note
-
-You will need a Trigger for everything you want to re-poll so the QAction can use it. Most of the time this will already be there.
+> **Note** You will need a Trigger for everything you want to re-poll so the QAction can use it. Most of the time this will already be there.
 
 #### Step 1.
 Add 2 parameters to the xml code. You can pick whatever id, name and description you want.
@@ -43,7 +45,7 @@ Add 2 parameters to the xml code. You can pick whatever id, name and description
 #### Step 2.
 Add a new QAction and make sure the triggers are the id's of the 2 parameters you defines in Step 1.
 ```xml
-<QAction id="100" name="Check Buffered Requests" encoding="csharp" triggers="99;100"></QAction>	
+<QAction id="100" name="Check Retry Buffer" encoding="csharp" triggers="99;100"></QAction>	
 ```
 
 #### Step 3.
@@ -82,7 +84,7 @@ Add a 1 second timer, that will trigger the group. If there is already a small t
 </Timer>
 ```
 
-#### Step 5.
+#### Step 6.
 Open the QAction created in Step 2. Add the below code and fill in the parameter ids from Step 1.
 ```csharp
 using System;
@@ -118,7 +120,12 @@ public class QAction
 
 ## Usage/Examples
 
-With a standalone parameter.
+#### With a standalone parameter.
+
+- StandAloneParameter: The id of the parameter that needs to update after the set is done.
+- TriggerId: The id of the trigger that will re-poll "StandAloneParameter".
+- desiredValue: The value "StandAloneParameter" needs to be.
+
 ```csharp
 using System;
 
@@ -156,7 +163,14 @@ public static class QAction
 
 ```
 
-With a table cell.
+#### With a table cell.
+
+- TablePid: The id of the table that holds the cell that needs to update after the set is done.
+- RowKey: The primary key the row that holds the cell of that needs to update after the set is done.
+- ColumnIdx: The column idx of the column that holds the cell of that needs to update after the set is done.
+- TriggerId: The id of the trigger that will re-poll the table, row or cell.
+- desiredValue: The value cell needs to be.
+
 ```csharp
 using System;
 
