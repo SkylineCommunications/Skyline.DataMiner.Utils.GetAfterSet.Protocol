@@ -227,6 +227,10 @@
             return array;
         }
 
+        /// <summary>
+        /// Returns an enumerator that iterates through the collection.
+        /// </summary>
+        /// <returns>An enumerator that can be used to iterate through the collection.</returns>
         public IEnumerator<GetAfterSetConfig> GetEnumerator()
         {
             for (int i = 0; i < Count; i++)
