@@ -5,7 +5,7 @@
 		<Nullable>disable</Nullable>
 		<AssemblyName>Skyline.DataMiner.Utils.GetAfterSet.Protocol</AssemblyName>
 		<PackageVersion>1.0.1</PackageVersion>
-		<Version>1.0.1</Version>
+		<Version>1.0.0.1</Version>
 		<PackageTags>Skyline;DataMiner</PackageTags>
 		<PackageProjectUrl>https://skyline.be</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
@@ -25,5 +25,10 @@
 		<None Include="README.md" Pack="true" PackagePath="" />
 		<None Include="LICENSE.txt" Pack="true" PackagePath="" />
 		<None Include="nuget\Icon.png" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	  <PackageReference Include="Skyline.DataMiner.Dev.Protocol" Version="10.0.0.5" />
 	</ItemGroup>
 </Project>
