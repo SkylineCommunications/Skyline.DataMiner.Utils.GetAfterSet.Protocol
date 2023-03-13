@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Text;
-
-namespace Skyline.DataMiner.Utils.GetAfterSet.Exceptions
+﻿namespace Skyline.DataMiner.Utils.GetAfterSet.Exceptions
 {
+    using System;
+    using System.Runtime.Serialization;
+
     [Serializable]
     public class QueueIsEmptyException : Exception
     {
