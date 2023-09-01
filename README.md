@@ -162,6 +162,7 @@ public static class QAction
 	{
 		try
 		{
+			// Manuel check
 			protocol.SetParameter(StandaloneParameter, "Set");
 
 			var retryRequest = new GetAfterSetConfig(
@@ -169,7 +170,10 @@ public static class QAction
 					TriggerId,
 					desiredValue);
 
-			protocol.SetParameter(Parameter.addrequestbuffer, Convert.ToString(new RequestQueue(retryRequest, 5)));
+			protocol.SetParameter(Parameter.addrequestbuffer, Convert.ToString(new GetAfterSetQueue(retryRequest, 5)));
+
+			// Or using the extension methods
+			protocol.SetParameter(StandaloneParameter, desiredValue, TriggerId, retries, Parameter.addrequestbuffer);
 		}
 		catch (Exception ex)
 		{
@@ -207,6 +211,7 @@ public static class QAction
 	{
 		try
 		{
+			// Manuel check
 			protocol.SetParameter(StandaloneParameter, "Set");
 
 			var retryRequest = new GetAfterSetConfig(
@@ -216,7 +221,10 @@ public static class QAction
 					TriggerId,
 					desiredValue);
 
-			protocol.SetParameter(Parameter.addrequestbuffer, Convert.ToString(new RequestQueue(retryRequest, 5)));
+			protocol.SetParameter(Parameter.addrequestbuffer, Convert.ToString(new GetAfterSetQueue(retryRequest, 5)));
+
+			// Or using the extension methods
+			protocol.SetParameter(TablePid, RowKey, ColumnIdx, desiredValue, TriggerId, retries, Parameter.addrequestbuffer);
 		}
 		catch (Exception ex)
 		{

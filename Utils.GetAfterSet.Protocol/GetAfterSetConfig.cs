@@ -35,7 +35,6 @@
             this.ParameterID = parameterPid;
             this.TriggerId = triggerId;
             this.DesiredValue = desiredValue;
-            this.IsTableParameter = false;
 
             this.TableId = -1;
             this.RowKey = null;
@@ -58,7 +57,6 @@
             this.ColumnIdx = columnIdx;
             this.TriggerId = triggerId;
             this.DesiredValue = desiredValue;
-            this.IsTableParameter = true;
 
             this.ParameterID = -1;
         }
@@ -70,25 +68,25 @@
         /// Gets the tablePiD or -1 if the config is about a stand alone parameter.
         /// </summary>
         [JsonProperty("table_id")]
-        public int TableId { get; private set; }
+        public int TableId { get; private set; } = -1;
 
         /// <summary>
         /// Gets the ColumnIdx or -1 if the config is about a stand alone parameter.
         /// </summary>
         [JsonProperty("column_idx")]
-        public int ColumnIdx { get; private set; }
+        public int ColumnIdx { get; private set; } = -1;
 
         /// <summary>
         /// Gets the RowKey or <see langword="null"/> if the config is about a standalone parameter.
         /// </summary>
         [JsonProperty("row_key")]
-        public string RowKey { get; private set; }
+        public string RowKey { get; private set; } = null;
 
         /// <summary>
         /// Gets the ParameterId or -1 if the config is about a table cell.
         /// </summary>
         [JsonProperty("parameter_id")]
-        public int ParameterID { get; private set; }
+        public int ParameterID { get; private set; } = -1;
 
         /// <summary>
         /// Gets the desired value the stand alone parameter or table cell should be.
@@ -107,8 +105,8 @@
         /// <para><see langword="true"/>: it is about a table cell.</para>
         /// <para><see langword="false"/>: it is about a standalone parameter.</para>
         /// </summary>
-        [JsonProperty("is_table_parameter")]
-        public bool IsTableParameter { get; private set; }
+        [JsonIgnore]
+        public bool IsTableParameter { get => TableId != -1; }
         #endregion
 
         #region Methods
